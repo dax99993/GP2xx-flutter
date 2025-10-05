@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gp2xx/screens/about.dart';
+import 'package:gp2xx/screens/edit.dart';
 import 'package:gp2xx/screens/home.dart';
 
 void main() {
@@ -30,9 +32,15 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
+
+        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
+        brightness: Brightness.dark,
       ),
       home: const MyHomePage(title: ''),
+      routes: {
+        '/aboutpage': (context) => AboutPage(),
+        '/editpage': (context) => EditPage(),
+      },
     );
   }
 }

@@ -2,10 +2,11 @@
 import 'package:flutter/material.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const MyAppBar({super.key, required this.title, this.actions});
+  const MyAppBar({super.key, required this.title, this.leading, this.actions});
 
   final String title;
-  final Widget? actions;
+  final List<Widget>? actions;
+  final Widget? leading;
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +14,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(title, style:TextStyle(color: Theme.of(context).colorScheme.primary)),
         // Left children
+        leading: leading,
         // Right Children
         actions: [
           Container(
@@ -20,9 +22,9 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ElevatedButton(onPressed: () {}, child: Text("Skip")),
+                ...?actions
               ],
-            ),
+          ),
         )
         ],
       );
