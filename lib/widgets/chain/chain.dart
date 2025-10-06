@@ -11,16 +11,14 @@ class Chain extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width,
-      // height: height,
-      // padding: EdgeInsets.all(25),
-      color: Colors.red,
-      child: Stack(alignment: AlignmentGeometry.center,
-        children: [
-          // Fixed chain icon
-          // SvgPicture.asset('assets/icons/Chain.svg', width: width, height: height,),
-          SvgPicture.asset('assets/icons/Chain.svg', width: width),
-        ],
-      )
+      height: 190,
+      padding: EdgeInsets.only(top: 25, bottom: 25),
+      // color: Colors.red,
+      // Fixed chain icon
+      child: SvgPicture.asset(
+            'assets/icons/Chain.svg',
+            fit: BoxFit.fill,
+          ),
     );
   }
 }

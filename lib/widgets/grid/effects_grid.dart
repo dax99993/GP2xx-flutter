@@ -17,6 +17,11 @@ class EffectsGrid extends StatefulWidget {
 class _EffectsGridState extends State<EffectsGrid> {
   late final double _width;
   late final double _height;
+  late final double _crossSpacing;
+
+  final double _imageWidth = 50;
+  final double _mainSpacing = 20;
+  final double _horizontalPadding = 40;
   final int numCols = 4;
 
   /// create a new list of data
@@ -29,6 +34,9 @@ class _EffectsGridState extends State<EffectsGrid> {
 
     _width = widget.width;
     _height = widget.height;
+
+    final w = _width - 2 * _horizontalPadding;
+    _crossSpacing =  (w - 4 * _imageWidth) / 3;
   }
 
   /// when the reorder completes remove the list entry from its old position
@@ -48,25 +56,34 @@ class _EffectsGridState extends State<EffectsGrid> {
   Widget build(BuildContext context) {
     return Container(
       width: _width,
-      height: _height,
+      height: 3 * _imageWidth + 2 * _mainSpacing,
+      // height: _height,
       // color: Colors.white,
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+      padding: EdgeInsets.symmetric(horizontal: _horizontalPadding, vertical: 0),
       child: ReorderableGridView.extent(
-        maxCrossAxisExtent: (_width) / (numCols + 1),
-        mainAxisSpacing: 20,
-        crossAxisSpacing: 0,
+        // maxCrossAxisExtent: (_width - 2 * horizontalPadding) / (numCols),
+        maxCrossAxisExtent: _imageWidth,
+        mainAxisSpacing: _mainSpacing,
+        crossAxisSpacing: _crossSpacing,
         itemDragEnable: _dragEnable,
         onReorder: _onReorder,
         childAspectRatio: 1,
         children: items.map((item) {
           /// map every list entry to a widget and assure every child has a
           /// unique key
-          return SizedBox(
+          return Container(
             key: ValueKey(item),
+            // width: 10,
+            // constraints: BoxConstraints(
+            //   maxWidth: 20,
+            //   maxHeight: 20,
+            // ),
             // padding: EdgeInsets.all(20),
+            color: Colors.yellow,
             child: EffectImage(
               effect: ChainEffectType.values[item],
-              state: true,
+              state: (item % 2) == 0,
+              selected: (item % 3) == 0,
             ),
           );
         }).toList()
