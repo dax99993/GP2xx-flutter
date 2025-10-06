@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_svg: ^2.2.1
   reorderable_grid: ^1.0.12
+  flutter_midi_command: ^0.5.3
 
 dev_dependencies:
   flutter_test:

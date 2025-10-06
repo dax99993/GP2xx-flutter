@@ -9,8 +9,7 @@ class EffectChain extends StatelessWidget {
   const EffectChain({super.key});
 
   // Get from device and clamp to min and max
-  final double width = 350;
-
+  final double width = 400;
   final double imageWidth = 40;
 
   final double height = 350;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gp2xx/screens/about.dart';
-import 'package:gp2xx/screens/edit.dart';
+import 'package:gp2xx/screens/edit/edit.dart';
 import 'package:gp2xx/screens/home.dart';
 
 void main() {

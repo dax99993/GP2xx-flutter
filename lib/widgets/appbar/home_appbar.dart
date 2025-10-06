@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:gp2xx/screens/edit.dart';
+import 'package:gp2xx/screens/edit/edit.dart';
 import 'package:gp2xx/widgets/appbar/appbar.dart';
 
 class HomePageBar extends StatelessWidget implements PreferredSizeWidget {
